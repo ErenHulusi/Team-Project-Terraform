@@ -1,3 +1,5 @@
+# database.tf: Configure the RDS instance.
+
 resource "aws_db_instance" "main" {
   allocated_storage      = 20
   engine                 = "mysql"
@@ -8,13 +10,13 @@ resource "aws_db_instance" "main" {
   password               = var.db_password
   parameter_group_name   = "default.mysql5.7"
   skip_final_snapshot    = true
-  vpc_security_group_ids = [aws_security_group.main.id]
+  vpc_security_group_ids = [aws_security_group.rds.id]
   db_subnet_group_name   = aws_db_subnet_group.main.id
 }
 
 resource "aws_db_subnet_group" "main" {
   name       = "main"
-  subnet_ids = [aws_subnet.subnet1.id, aws_subnet.subnet2.id]
+  subnet_ids = [aws_subnet.private_subnet1.id, aws_subnet.private_subnet2.id]
 
   tags = {
     Name = "main"

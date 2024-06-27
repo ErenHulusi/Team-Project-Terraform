@@ -1,6 +1,8 @@
+# elb.tf: Elastic Load Balancer.
+
 resource "aws_elb" "app_elb" {
   name               = "app-elb"
-  availability_zones = ["${aws_subnet.subnet1.availability_zone}", "${aws_subnet.subnet2.availability_zone}"]
+  availability_zones = [aws_subnet.public_subnet1.availability_zone, aws_subnet.public_subnet2.availability_zone]
 
   listener {
     instance_port     = 80

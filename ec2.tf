@@ -1,3 +1,4 @@
+# ec2.tf: Configure the EC2 instances.
 resource "aws_instance" "app_server" {
   count           = var.instance_count
   ami             = "ami-0c55b159cbfafe1f0" # Amazon Linux 2 AMI

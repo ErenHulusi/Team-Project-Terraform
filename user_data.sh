@@ -1,3 +1,4 @@
+# user_data.sh: Script to configure the EC2 instances.
 #!/bin/bash
 
 # Update the system

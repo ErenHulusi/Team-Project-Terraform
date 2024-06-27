@@ -1,3 +1,4 @@
+# iam.tf: Configure IAM roles and policies.
 resource "aws_iam_role" "ec2_role" {
   name = "ec2-role"
 
